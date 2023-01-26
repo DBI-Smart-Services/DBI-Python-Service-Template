@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+    app:
+      image: ghcr.io/tmmgroupag/$PROJECT_NAME$-app:latest
+      build:
+        context: ./app
+        target: $PROJECT_NAME$
+      expose:
+        - "8050"
+      restart: always
+       
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+        depends_on:
+            - app
+        ports:
+            - "${APP_HOST_PORT}:8050"
+        restart: always
+
+networks:
+  default:
+    driver: bridge
+    name: $PROJECT_NAME$

@@ -1,0 +1,16 @@
+# some standard packages
+numpy==1.23.3
+openpyxl==3.0.9
+pandas==1.5.0
+
+# for plotting
+plotly==5.10.0
+
+# for web app
+Flask==2.1.3
+Flask-Cors==3.0.10
+connexion[swagger-ui]==2.14.1
+dash==2.8.0
+
+# for env configuration
+python-dotenv==0.21.0
