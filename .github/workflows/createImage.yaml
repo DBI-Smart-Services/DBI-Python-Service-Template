@@ -9,7 +9,7 @@ jobs:
     name: Create Image and Push to Registry
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout $PROJECT_NAME$
+      - name: Checkout dbi_pyton_service_template
         uses: actions/checkout@v3
 
       - name: Login to GitHub Container Registry
@@ -17,7 +17,7 @@ jobs:
         with:
           registry: ghcr.io
           username: tmmgroup
-          password: ${{ secrets.$PROJECT_NAME$_GIT_TOKEN }}
+          password: ${{ secrets.DBI_PYTHON_SERVICE_TEMPLATE_GIT_TOKEN }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -26,8 +26,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./app
-          target: $PROJECT_NAME$
+          target: dbi_pyton_service_template
           push: true
-          tags: ghcr.io/tmmgroupag/$PROJECT_NAME$:latest
+          tags: ghcr.io/tmmgroupag/dbi_pyton_service_template:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

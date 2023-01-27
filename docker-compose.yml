@@ -1,10 +1,10 @@
 version: '3.8'
 services:
     app:
-      image: ghcr.io/tmmgroupag/$PROJECT_NAME$-app:latest
+      image: ghcr.io/tmmgroupag/dbi_pyton_service_template-app:latest
       build:
         context: ./app
-        target: $PROJECT_NAME$
+        target: dbi_pyton_service_template
       expose:
         - "8050"
       restart: always
@@ -22,4 +22,4 @@ services:
 networks:
   default:
     driver: bridge
-    name: $PROJECT_NAME$
+    name: dbi_pyton_service_template

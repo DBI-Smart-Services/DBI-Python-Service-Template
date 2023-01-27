@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: ./app
-      target: plotlyHKL
+      target: dbi_pyton_service_template
     ports:
       - "0:8050"
     volumes:
